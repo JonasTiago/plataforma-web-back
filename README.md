@@ -3,12 +3,6 @@
 
 Uma api de cadastro de Usuário ultilizando node e mongodb como base.
 
-
-### Autores
-
-- [@JonasTiago](https://github.com/JonasTiago)
-
-
 ## Apêndice
 
 Link para o front do projeto: 
