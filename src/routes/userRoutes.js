@@ -7,7 +7,7 @@ import {
   signIn,
   updateUser,
 } from "../controllers/userController.js";
-import createUserValidate from "../middlewares/UserSchemaMiddleware.js";
+import createUserValidate from "../middlewares/userSchemaMiddleware.js";
 
 const userRoutes = new Router();
 

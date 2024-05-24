@@ -2,7 +2,6 @@ import { ObjectId } from "mongodb";
 import { userCollection } from "../data/db.js";
 import bcrypt from "bcrypt";
 import { Error } from "mongoose";
-import userSchema from "../models/UserModel.js";
 
 async function create({ name, email, password }) {
   const passwordHash = bcrypt.hashSync(password, 10);
