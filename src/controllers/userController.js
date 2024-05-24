@@ -7,7 +7,6 @@ async function createUser(req, res) {
     const user = await userService.create({ name, email, password });
     res.status(201).send(user);
   } catch (err) {
-    console.log(err);
     res.status(400).send(err);
   }
 }
@@ -29,7 +28,6 @@ async function listUser(req, res) {
     const users = await userService.findAll();
     res.status(200).send(users);
   } catch (err) {
-    console.log(err);
     res.status(500).send(err);
   }
 }
@@ -60,13 +58,12 @@ async function findUser(req, res) {
 
 async function updateUser(req, res) {
   const { user_id } = req.params;
-  const { name } = req.body;
+  const { name, email } = req.body;
 
   try {
-    const user = await userService.update(user_id, name);
+    const user = await userService.update(user_id, name, email);
     res.status(200).send(user);
   } catch (err) {
-    console.log(err);
     res.status(500).send(err);
   }
 }

@@ -37,7 +37,6 @@ async function remove(id) {
   const del = await userCollection.deleteOne({ _id: userId });
 
   if (!del.deletedCount) throw { message: "User not the found!", code: 404 };
-
   return;
 }
 
@@ -52,10 +51,23 @@ async function find(id) {
   });
 }
 
-async function update(id, name) {
+async function update(id, name, email) {
+
   const userId = ObjectId.createFromHexString(id);
 
-  return await userCollection.updateOne({ _id: userId }, { $set: { name } });
+  const user = await userCollection.findOne({ _id: userId });
+  if (!user) throw { message: "User not found!", code: 404 };
+ 
+  if(email){
+    const emailexit = await userCollection.findOne({ email })
+    if(emailexit) throw { message: "Email já usado!", code: 409 };
+  } else {
+    email = user.email 
+  } 
+
+  if(!name) name = user.name 
+
+  return await userCollection.updateOne({ _id: userId }, { $set: { name, email } });
 }
 
 export const userService = {
