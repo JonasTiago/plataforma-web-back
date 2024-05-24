@@ -1,0 +1,40 @@
+### Criar usuario
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name": "jonah",
+    "email": "jonass@gmail.com",
+    "password": "minhaSenha"
+}
+
+
+#### Fazer login
+POST http://localhost:3000/users/sign-in
+Content-Type: application/json
+
+{
+    "email": "jonas@gmail.com",
+    "password": "minhaSenha"
+}
+
+
+#### Busca todos os usuarios
+GET http://localhost:3000/users
+
+
+#### Deletar um usuario com o id
+DELETE http://localhost:3000/users/664e0029c271850af38d0532
+
+
+#### Busca um usuario com id
+GET http://localhost:3000/users/664e02a823c5f5002d976aed
+
+#### Editar um usuario com id
+PUT http://localhost:3000/users/664d39bf581e511b218e2495
+Content-Type: application/json
+
+{
+    "name": "jonasss"
+}
