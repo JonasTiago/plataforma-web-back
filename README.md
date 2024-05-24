@@ -65,7 +65,7 @@ iniciar o my-project (Configure o dotEnv) :
 #### Atualizar um usuário do id enviado
 
 ```http
-  GET /users/:user_id
+  POST /users/:user_id
 ```
 ##### body: (? campos não obrigatorios)
 ```body
